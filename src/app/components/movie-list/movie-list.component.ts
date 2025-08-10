@@ -15,7 +15,7 @@ export class MovieListComponent implements OnInit {
     loading = false;
     error: string | null = null;
     currentPage = 1;
-    itemsPerPage = 20;
+    itemsPerPage = 8;
     totalItems = 0;
     totalPages = 0;
 
