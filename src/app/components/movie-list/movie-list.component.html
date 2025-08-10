@@ -1,0 +1,27 @@
+<div *ngIf="loading" class="loading-container">Loading movies...</div>
+<div *ngIf="error && !loading" class="error-container">{{ error }}</div>
+<div *ngIf="!loading && !error && movies.length > 0" class="movie-list-container">
+  <div *ngFor="let movie of movies" class="movie-card">
+    <img [src]="getImageUrl(movie)" alt="{{ movie.name }}">
+    <div class="movie-info">
+      <h2>{{ movie.name }}</h2>
+      <span *ngIf="movie.release_date" class="release-date">Released: {{ formatDate(movie.release_date) }}</span>
+      <span *ngIf="movie.runtime" class="runtime">({{ movie.runtime }} mins)</span>
+      <p *ngIf="movie.deck" class="movie-description">{{ stripHtml(movie.deck) }}</p>
+      <div *ngIf="movie.rating" class="movie-rating">Rating: {{ movie.rating }}</div>
+    </div>
+  </div>
+  <div class="pagination">
+    <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Prev</button>
+    <button *ngFor="let page of getPaginationPages()" 
+            [class.active]="page === currentPage" 
+            (click)="onPageChange(page)">{{ page }}</button>
+    <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+  <div class="page-summary">
+    Showing {{ (currentPage - 1) * itemsPerPage + 1 }} -
+            {{ getMin(currentPage * itemsPerPage, totalItems) }} of {{ totalItems }}
+  </div>
+</div>
+<div *ngIf="!loading && !error && movies.length === 0" class="no-results">No movies found.</div>
+
