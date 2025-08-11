@@ -71,10 +71,6 @@ export class MovieListComponent implements OnInit {
         return pages;
     }
 
-    getImageUrl(movie: Movie): string {
-        return movie.image?.medium_url || movie.image?.small_url || movie.image?.thumb_url || 'assets/placeholder-movie.jpg';
-    }
-
     formatDate(dateString: string | undefined): string {
         if (!dateString) return 'Unknown';
         return new Date(dateString).toLocaleDateString();

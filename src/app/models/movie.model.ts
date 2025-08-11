@@ -2,12 +2,6 @@ export interface Movie {
     id: number;
     name: string;
     deck?: string;
-    image?: {
-        icon_url?: string;
-        medium_url?: string;
-        small_url?: string;
-        thumb_url?: string;
-    };
     release_date?: string;
     runtime?: number;
     rating?: string;
