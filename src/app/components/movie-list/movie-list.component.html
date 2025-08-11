@@ -20,7 +20,6 @@
     </tbody>
   </table>
 
-  <!-- PAGINATION stays same -->
   <div class="pagination">
     <button (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">Prev</button>
     <button *ngFor="let page of getPaginationPages()" [class.active]="page === currentPage"
@@ -28,7 +27,6 @@
     <button (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
   </div>
 
-  <!-- PAGE SUMMARY stays same -->
   <div class="page-summary">
     Showing {{ (currentPage - 1) * itemsPerPage + 1 }} -
     {{ getMin(currentPage * itemsPerPage, totalItems) }} of {{ totalItems }}
