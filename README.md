@@ -1,5 +1,5 @@
-First start the proxy backend
+First start the proxy backend --
 npm run start:backend
 
-Start the server
+Start the server -- 
 npm start
