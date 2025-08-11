@@ -5,7 +5,6 @@ const app = express();
 
 app.use(cors());
 
-// Use only the API key string here - NOT the full URL
 const API_KEY = '8c35462eea652a85602f7ba88ee72c581e949e9d';
 const BASE_URL = 'https://comicvine.gamespot.com/api/movies/';
 
